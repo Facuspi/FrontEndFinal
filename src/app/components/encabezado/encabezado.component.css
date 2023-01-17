@@ -1,15 +1,15 @@
-#barra_nav {
+#header {
     background-color: rgba(12, 1, 50, 0.914);
     width: 100%;
     padding: 5px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between;   
     
 }
 
-#barra_nav h4{
+ h4{
     color: white;
     display: inline;
     position: relative;
