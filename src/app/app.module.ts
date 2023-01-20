@@ -7,6 +7,7 @@ import { EncabezadoComponent } from './components/encabezado/encabezado.componen
 
 import { DatosPersonalesComponent } from './components/datos-personales/datos-personales.component';
 import { ExperienciaLaboralComponent } from './components/experiencia-laboral/experiencia-laboral.component';
+import { EstudiosComponent } from './components/estudios/estudios.component';
 
 
 
@@ -16,6 +17,7 @@ import { ExperienciaLaboralComponent } from './components/experiencia-laboral/ex
     EncabezadoComponent,
     DatosPersonalesComponent,
     ExperienciaLaboralComponent,
+    EstudiosComponent,
   ],
   imports: [
     BrowserModule,
