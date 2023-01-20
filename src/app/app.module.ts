@@ -4,7 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EncabezadoComponent } from './components/encabezado/encabezado.component';
-import { BarraLateralComponent } from './components/barra-lateral/barra-lateral.component';
+
+import { DatosPersonalesComponent } from './components/datos-personales/datos-personales.component';
+import { ExperienciaLaboralComponent } from './components/experiencia-laboral/experiencia-laboral.component';
 
 
 
@@ -12,7 +14,8 @@ import { BarraLateralComponent } from './components/barra-lateral/barra-lateral.
   declarations: [
     AppComponent,
     EncabezadoComponent,
-    BarraLateralComponent,
+    DatosPersonalesComponent,
+    ExperienciaLaboralComponent,
   ],
   imports: [
     BrowserModule,

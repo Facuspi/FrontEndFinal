@@ -1,0 +1,134 @@
+<div class="container  tarjeta">
+    <div class="row">
+        <div class="col">
+            <img src="./assets/Imagenes/banner.png" id="banner" >
+        </div>
+    </div>
+
+   <div class="row">
+
+        <div class="col">
+            <img src="./assets/Imagenes/foto_perfil.jpg" id="foto_perfil">
+        </div>
+
+        <div class="col text-center">
+            <h2>Facundo Spinelli </h2>
+
+            <h4>Programador Web Full Stack junior<br> Buenos Aires, Argentina</h4>
+        </div>
+
+        <div class="col">
+            <section id="editarFoto">
+                <button type="button" class="btn btn-light" id="boton_edit" data-bs-toggle="modal" data-bs-target="#editFotoModal"> <i class="fa-solid fa-camera fa-lg"></i></button>
+            </section>
+
+            <section id="editDatos">
+                <button type="button" class="btn btn-light" id="boton_edit" data-bs-toggle="modal" data-bs-target="#editarModal"> <i class="fa-solid fa-pen fa-lg"></i></button>
+            </section> 
+        </div>        
+            
+    </div>
+    
+    <div class="container p-2">
+        <div class="row text-start">
+          <div class="col-10">
+            <h3>Sobre mí</h3>                
+            <p>Me considero una persona introvertida, que rápidamente adquiere confianza en el trabajo a través del aprendizaje. Soy responsable y organizado ejecutando tareas. Puedo trabajar en equipo siempre enfocado en alcanzar los objetivos propuestos. Me gusta analizar primero el problema y luego tomar decisiones. Como todo millennial, la PC, internet y redes forma parte de mi vida desde mi infancia y la considero una herramienta fundamental.</p>
+          </div>
+          <div class="col-2">
+            <section id="editSobreMi">
+                <button type="button" class="btn btn-light" id="boton_edit" data-bs-toggle="modal" data-bs-target="#editSobreMiModal"> <i class="fa-solid fa-pen fa-lg"></i></button>
+            </section>
+        </div>
+     </div>
+    </div>
+        
+</div>
+
+<!-- Modal editar datos personales-->
+<div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="editarModalLabel">Editar datos personales</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                  <label for="inputNombre" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="inputNombre" >
+                </div>
+                <div class="mb-3">
+                  <label for="inputApellido" class="form-label">Apellido</label>
+                  <input type="text" class="form-control" id="inputApellido" >
+                </div> 
+                <div class="mb-3">
+                  <label for="inputPosition" class="form-label">Posicion</label>
+                  <input type="text" class="form-control" id="inputPosition">
+                </div>
+                <div class="mb-3">
+                <label for="inputCiudad" class="form-label">Ciudad</label>
+                  <input type="text" class="form-control" id="inputCiudad">
+                  
+                <label for="inputPais" class="form-label">País</label>
+                  <input type="text" class="form-control" id="inputPais">
+                
+                </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Editar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Foto de perfil y banner-->
+<div class="modal fade" id="editFotoModal" tabindex="-1" aria-labelledby="editFotoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="editFotoModalLabel">Cambiar foto de perfil y/o banner</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                  <label for="inputURL" class="form-label">URL foto de perfil</label>
+                  <input type="url" class="form-control" id="inputURL">
+                  <label for="inputURL" class="form-label">URL banner</label>
+                  <input type="url" class="form-control" id="inputURL">
+                  
+                </div>     
+             </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Editar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal editar sobre mi -->
+<div class="modal fade" id="editSobreMiModal" tabindex="-1" aria-labelledby="editSobreMiModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="editSobreMiModalLabel">Editar "Sobre Mí"</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                     <textarea class="form-control" id="about" rows="3"></textarea>
+                  </div>
+                
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Editar</button>
+        </div>
+      </div>
+    </div>
+  </div>
