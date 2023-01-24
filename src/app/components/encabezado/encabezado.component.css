@@ -9,13 +9,6 @@
     position: relative;
     top: 5px;
 }
-#boton_secciones{
-    color: white;
-    display: inline;
-    position: relative;
-    top: 15px;
-    
-}
 
 #logo_AP {
     width: 120px;
@@ -31,10 +24,7 @@
     color:white;
 }
 
-h5{
-    color:white; 
-    display:inline;
-}
+
 button{
     background-color: rgba(12, 1, 50, 0.914);
     border-bottom: 2px solid white;
@@ -42,13 +32,3 @@ button{
     padding-bottom: 10px;
  }
 
-.fa-solid {
-    color:lightgray;
-    display:inline;
-    padding-right: 10px;
-    padding-left: 5px;       
-}
-
-.dropdown-menu{
-    background-color: rgba(12, 1, 50, 0.914);
-}

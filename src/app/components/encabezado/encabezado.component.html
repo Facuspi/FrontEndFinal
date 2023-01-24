@@ -11,13 +11,44 @@
             <i class="fa-brands fa-github fa-2xl"></i>
         </a>
   
-        <button id="boton_login" type="button" class="btn btn-outline-light">
+        <button id="boton_login" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#loginModal">
             Iniciar Sesión
         </button>    
         
         <button id="boton_login" type="button" class="btn btn-outline-light">
             Cerrar Sesion
         </button>
-      </div>
+        </div>
     </div>
 </div>
+
+<!-- Modal login -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="loginModalLabel">Iniciar Sesión</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+               
+              <div class="mb-3">
+                  <label for="inputEmail" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="inputEmail">
+                </div>               
+          
+                          
+                <div class="mb-3">
+                  <label for="inputContra" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control" id="inputContra" >
+                </div>         
+                  
+                <div class="text-end">
+                <button type="submit" class="btn btn-secondary">Ingresar</button>
+                </div>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
