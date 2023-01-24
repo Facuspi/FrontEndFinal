@@ -1,0 +1,111 @@
+<div class="container tarjeta">
+    
+    <div class="row">
+          
+        <div class="col">
+            <h3><i class="fa-sharp fa-solid fa-chart-simple"></i> Habilidades</h3>
+        </div>
+          
+        <div class="col">
+            <section id="agregarHab">
+
+                <button type="button" class="btn btn-light" id="boton_edit" data-bs-toggle="modal" data-bs-target="#nuevaHabModal"><i class="fa-solid fa-plus fa-lg"></i></button>
+
+            </section>
+
+          </div>
+    </div>
+      
+    <ul>
+        <li>
+            <div class="row">
+                <div class="col-11">
+                    
+                    <h6>Habilidad</h6>
+
+                    <div class="progress" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-striped" style="width: 50%">50%</div>
+                    </div>
+                </div>
+                
+                <div class="col-1">
+                    
+                    <section id="editHab">
+                        
+                        <button type="button" class="btn btn-light" id="boton_edit" data-bs-toggle="modal" data-bs-target="#eliminarHabModal"> <i class="fa-solid fa-trash"></i></button> 
+                        
+                        <button type="button" class="btn btn-light" id="boton_edit" data-bs-toggle="modal" data-bs-target="#editarHabModal"> <i class="fa-solid fa-pen fa-lg"></i></button> 
+
+                    </section>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<!-- Modal nueva Hab -->
+<div class="modal fade" id="nuevaHabModal" tabindex="-1" aria-labelledby="nuevaHabModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="nuevaHabModalLabel">Nueva habilidad</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <label for="inputHabilidad" class="form-label">Hablidad</label>
+                <input type="text" class="form-control" id="inputHabilidad">
+              </div>
+              <div class="mb-3">
+                <label for="inputPorcentaje" class="form-label">Porcentaje</label>
+                <input type="number" class="form-control" id="inputPorcentaje">
+              </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Modal eliminar elemento-->
+<div class="modal fade" id="eliminarHabModal" tabindex="-1" aria-labelledby="eliminarHabModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="eliminarHabModalLabel">¿Desea eliminar este elemento?</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Si</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Modal editar Hab -->
+    <div class="modal fade" id="editarHabModal" tabindex="-1" aria-labelledby="editarHabModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="editarHabModalLabel">Editar Habilidad</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="inputHabilidad" class="form-label">Habilidad</label>
+                    <input type="text" class="form-control" id="inputHabilidad">
+                  </div>
+                  <div class="mb-3">
+                    <label for="inputPorcentaje" class="form-label">Porcentaje</label>
+                    <input type="number" class="form-control" id="inputPorcentaje">
+                  </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Editar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+

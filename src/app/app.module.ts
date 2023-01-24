@@ -8,6 +8,8 @@ import { EncabezadoComponent } from './components/encabezado/encabezado.componen
 import { DatosPersonalesComponent } from './components/datos-personales/datos-personales.component';
 import { ExperienciaLaboralComponent } from './components/experiencia-laboral/experiencia-laboral.component';
 import { EstudiosComponent } from './components/estudios/estudios.component';
+import { HabilidadesComponent } from './components/habilidades/habilidades.component';
+import { ProyectosComponent } from './components/proyectos/proyectos.component';
 
 
 
@@ -18,6 +20,8 @@ import { EstudiosComponent } from './components/estudios/estudios.component';
     DatosPersonalesComponent,
     ExperienciaLaboralComponent,
     EstudiosComponent,
+    HabilidadesComponent,
+    ProyectosComponent,
   ],
   imports: [
     BrowserModule,

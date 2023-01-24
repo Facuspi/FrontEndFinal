@@ -1,0 +1,111 @@
+<div class="container tarjeta" id="proyectos">
+    
+    <div class="row">
+          
+        <div class="col">
+            <h3><i class="fa-solid fa-code"></i> Proyectos</h3>
+        </div>
+          
+        <div class="col">
+
+            <section id="agregarProyecto">
+                <button type="button" class="btn btn-light" id="boton_edit" data-bs-toggle="modal" data-bs-target="#nuevoProyModal"><i class="fa-solid fa-plus fa-lg"></i></button>
+            </section>
+
+        </div>
+    </div>
+      
+    <ul>
+        <li>
+            <div class="row">
+                <div class="col-11">
+                    <h4>Porfolio</h4>
+                    <h5><time>2023</time> </h5>                        
+                    <p>Portfolio web creado como proyecto final del curso 'Argentina Programa'</p>
+                </div>
+                
+                <div class="col-1">
+                    <section id="editProyetos">
+                        <button type="button" class="btn btn-light" id="boton_edit" data-bs-toggle="modal" data-bs-target="#eliminarProyModal"> <i class="fa-solid fa-trash"></i></button> 
+                        <button type="button" class="btn btn-light" id="boton_edit" data-bs-toggle="modal" data-bs-target="#editarProyModal"> <i class="fa-solid fa-pen fa-lg"></i></button> 
+                    </section>  
+                    
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+   <!-- Modal nuevo proyecto -->
+<div class="modal fade" id="nuevoProyModal" tabindex="-1" aria-labelledby="nuevoProyModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="nuevoProyModalLabel">Nuevo proyecto</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <label for="inputProyecto" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="inputProyecto">
+              </div>
+              <div class="mb-3">
+                <label for="inputFecha" class="form-label">Fecha de realización</label>
+                <input type="date" class="form-control" id="inputFecha">
+              </div>
+              <div class="mb-3">
+                <label for="inputDesc" class="form-label">Descripción</label>
+                <textarea class="form-control" id="inputDesc" rows="3"></textarea>
+             </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Modal eliminar elemento-->
+<div class="modal fade" id="eliminarProyModal" tabindex="-1" aria-labelledby="eliminarProyModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="eliminarModalLabel">¿Desea eliminar este elemento?</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Si</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal nuevo proyecto -->
+<div class="modal fade" id="editarProyModal" tabindex="-1" aria-labelledby="editarProyModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="editarProyModalLabel">Editar proyecto</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <label for="inputProyecto" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="inputProyecto">
+              </div>
+              <div class="mb-3">
+                <label for="inputFecha" class="form-label">Fecha de realización</label>
+                <input type="date" class="form-control" id="inputFecha">
+              </div>
+              <div class="mb-3">
+                <label for="inputDesc" class="form-label">Descripción</label>
+                <textarea class="form-control" id="inputDesc" rows="3"></textarea>
+             </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Editar</button>
+        </div>
+      </div>
+    </div>
+  </div>
