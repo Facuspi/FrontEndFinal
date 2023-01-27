@@ -1,0 +1,79 @@
+{
+    "nombre": "Facundo",
+    "apellido": "Spinelli",
+    "urlBanner": "./assets/Imagenes/banner.png",
+    "urlFoto": "./assets/Imagenes/foto_perfil.jpg",
+    "posicion": "Programador Web Full Stack",
+    "ciudad": "Buenos Aires",
+    "pais": "Argentina", 
+    "sobreMi":"Me considero una persona introvertida, que rápidamente adquiere confianza en el trabajo a través del aprendizaje. Soy responsable y organizado ejecutando tareas. Puedo trabajar en equipo siempre enfocado en alcanzar los objetivos propuestos. Me gusta analizar primero el problema y luego tomar decisiones. Como todo millennial, la PC, internet y redes forma parte de mi vida desde mi infancia y la considero una herramienta fundamental.",
+    "urlGitHub": "https://github.com/Facuspi",
+    "experiencias":[{
+            "id":1,
+            "puesto":"Actor/Animador Infantil",
+            "empresa":"Nunca Jamás Producciones",
+            "inicio":"2014",
+            "fin":"2022",
+            "descripcion":"Actor y animación en funciones para escuelas y teatros. Sonidista. Coordinador de grupos de actores.Promoción y venta de funciones. Carga, descarga y armado de escenografía." 
+        },
+        {
+        "id":2,
+        "puesto":"Atención al cliente / Administrativo",
+        "empresa":"Elemento Corte Laser",
+        "inicio":"2021",
+        "fin":"2022",
+        "descripcion":"Atención al cliente a través de WhatsApp, recepción de pedidos y asesoramiento. Gestión de agenda de pedidos. Manejo de Excel. Control de stock de mercadería, control de envíos y manejo básico de redes sociales."
+    },  
+    {
+        "id":3,
+        "puesto":"Operario",
+        "empresa":"Carpintería “Rama Madera”",
+        "inicio":"2020",
+        "fin":"2021",
+        "descripcion":"Realización en madera de diferentes elementos decorativos. Lijado, encerado, encolado y empaque de los productos realizados."
+    }],
+    "estudios":[{
+        "id":1,
+        "institucion":"“Argentina Programa” del Ministerio de Desarrollo Productivo de la Nación",
+        "inicio":"2021",
+        "fin":"2023",
+        "titulo":"Programador Web Full-Stack Junior"
+    }, {
+        "id":2,
+        "institucion":"Escuela Municipal de Formación Actoral “Pedro Escudero”",
+        "inicio":"2012",
+        "fin":"2015",
+        "titulo":"Actor"
+    }, {
+        "id":3,
+        "institucion":"Instituto Parroquial Nuestra Señora del Buen Viaje",
+        "inicio":"2007",
+        "fin":"2009",
+        "titulo":"Bachiller en Economía Y Gestión de las Organizaciones"
+    }],
+    "fortalezas": [{
+        "id":1,
+        "nombre":"Autogestión",
+        "porcentaje":75
+    },{
+        "id":2,
+        "nombre":"Responsabilidad",
+        "porcentaje":70
+    },{
+        "id":3,
+        "nombre":"Cooperación",
+        "porcentaje":60
+    },{
+        "id":4,
+        "nombre":"Autonomía",
+        "porcentaje":50
+    }],
+    "proyectos":[{
+        "id":1,
+        "nombre": "Portfolio Web",
+        "descripcion":"Portfolio web creado como proyecto final del curso 'Argentina Programa'",
+        "fecha":"Enero 2023"
+    }
+    ]
+
+}

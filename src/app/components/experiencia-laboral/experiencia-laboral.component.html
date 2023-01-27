@@ -1,4 +1,4 @@
-  <div class="container tarjeta">
+  <section id="experiencia" class="container tarjeta">
     <div class="row">
       <div class="col">
         <h3><i class="fa-solid fa-briefcase"></i> Experiencia Laboral</h3> 
@@ -11,13 +11,13 @@
     </div>
 
     <ul>
-         <li>
+         <li *ngFor="let exp of experienciaList">
             <div class="row">
-                <div class="col-11">
-                    <h4>Actor/Animador Infantil</h4>
-                    <h5>Nunca Jamás Producciones</h5>
-                    <h5><time>2014</time> -<time>2022</time> </h5>                        
-                    <p>Actor y animación en funciones para escuelas y teatros. Sonidista. Coordinador de grupos de actores.Promoción y venta de funciones. Carga, descarga y armado de escenografía.</p> 
+                <div class="col-11" >
+                    <h4>{{exp.puesto}}</h4>
+                    <h5>{{exp.empresa}}</h5>
+                    <h5><time>{{exp.inicio}}</time> -<time>{{exp.fin}}</time> </h5>                        
+                    <p>{{exp.descripcion}}</p> 
                 </div>
                 <div class="col-1">
                     <section id="editExperincia">
@@ -28,7 +28,7 @@
             </div>
         </li>
     </ul>
-  </div>
+  </section>
 
     <!-- Modal agregar experiencia -->
 <div class="modal fade" id="agregarExpModal" tabindex="-1" aria-labelledby="agregarExpModalLabel" aria-hidden="true">

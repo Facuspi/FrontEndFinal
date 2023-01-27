@@ -11,12 +11,12 @@
         </div>
     
         <ul>
-             <li>
+             <li *ngFor="let est of estudiosList">
                 <div class="row">
                     <div class="col-11">
-                        <h5>“Argentina Programa” del Ministerio de Desarrollo Productivo de la Nación</h5>
-                        <p><time>2021</time> -  <time>2023</time> <br>
-                            Programador Web Full-Stack Junior</p> 
+                        <h5>{{est.titulo}}</h5>
+                        <p><time>{{est.inicio}}</time> -  <time>{{est.fin}}</time> <br>
+                            {{est.institucion}}</p> 
                     </div>
                     <div class="col-1">
                         <section id="editEstudio">

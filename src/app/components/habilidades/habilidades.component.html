@@ -17,14 +17,14 @@
     </div>
       
     <ul>
-        <li>
+        <li *ngFor="let hab of habilidadesList">
             <div class="row">
                 <div class="col-11">
                     
-                    <h6>Habilidad</h6>
+                    <h6>{{hab.nombre}}</h6>
 
                     <div class="progress" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-bar progress-bar-striped" style="width: 50%">50%</div>
+                        <div class="progress-bar progress-bar-striped" [style]="{'width': hab.porcentaje +'%'} ">{{hab.porcentaje}}%</div>
                     </div>
                 </div>
                 

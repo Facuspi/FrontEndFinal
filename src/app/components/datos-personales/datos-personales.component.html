@@ -1,20 +1,20 @@
 <div class="container  tarjeta">
     <div class="row ">
         <div class="col">
-            <img src="./assets/Imagenes/banner.png" class="img-fluid rounded" id="banner" >
+            <img [src]="datosPersonales.urlBanner" class="img-fluid rounded" id="banner" >
         </div>
     </div>
 
    <div class="row align-items-center">
 
         <div class="col">
-            <img src="./assets/Imagenes/foto_perfil.jpg" class="img-fluid rounded-circle" id="foto_perfil">
+            <img [src]="datosPersonales.urlFoto" class="img-fluid rounded-circle" id="foto_perfil">
         </div>
 
         <div class="col text-center">
-            <h2>Facundo Spinelli </h2>
+            <h2>{{datosPersonales.nombre}} {{datosPersonales.apellido}}</h2>
             
-            <h4>Programador Web Full Stack junior<br> Buenos Aires, Argentina</h4>
+            <h4>{{datosPersonales.posicion}}<br> {{datosPersonales.ciudad}}, {{datosPersonales.pais}}</h4>
         </div>
 
         <div class="col">
@@ -33,7 +33,7 @@
         <div class="row text-start">
           <div class="col-10">
             <h3><i class="fa-solid fa-address-card fa-l "></i> Sobre mí</h3>                
-            <p>Me considero una persona introvertida, que rápidamente adquiere confianza en el trabajo a través del aprendizaje. Soy responsable y organizado ejecutando tareas. Puedo trabajar en equipo siempre enfocado en alcanzar los objetivos propuestos. Me gusta analizar primero el problema y luego tomar decisiones. Como todo millennial, la PC, internet y redes forma parte de mi vida desde mi infancia y la considero una herramienta fundamental.</p>
+            <p>{{datosPersonales.sobreMi}}</p>
           </div>
           <div class="col-2">
             <section id="editSobreMi">
