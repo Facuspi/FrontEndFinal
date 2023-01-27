@@ -16,12 +16,12 @@
     </div>
       
     <ul>
-        <li>
+        <li *ngFor="let proy of proyectosList">
             <div class="row">
                 <div class="col-11">
-                    <h4>Porfolio</h4>
-                    <h5><time>2023</time> </h5>                        
-                    <p>Portfolio web creado como proyecto final del curso 'Argentina Programa'</p>
+                    <h4>{{proy.nombre}}</h4>
+                    <h5><time>{{proy.fecha}}</time> </h5>                        
+                    <p>{{proy.descripcion}}</p>
                 </div>
                 
                 <div class="col-1">
