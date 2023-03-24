@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DatosService } from 'src/app/servicios/datos.service';
+import { Persona } from 'src/app/entity/persona';
+import { PersonaService } from 'src/app/servicios/persona.service';
+import { TokenService } from 'src/app/servicios/token.service';
+;
 
 @Component({
   selector: 'app-datos-personales',
@@ -7,14 +10,23 @@ import { DatosService } from 'src/app/servicios/datos.service';
   styleUrls: ['./datos-personales.component.css']
 })
 export class DatosPersonalesComponent implements OnInit {
-  datosPersonales: any;
+  datosPersonales: Persona[] = [];
+  isLogged=false;
+  
 
-  constructor(private datosPorfolio:DatosService) { }
+  constructor(private sDatosPersonales: PersonaService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
-    this.datosPorfolio.obtenerDatos().subscribe(data => {
-      this.datosPersonales = data;
-    });
+    if(this.tokenService.getToken()){
+      this.isLogged=true;
+    } else {
+      this.isLogged =false;
+    }
+    this.mostrarDatosPersonales();
+    };
+
+    mostrarDatosPersonales(): void {
+      this.sDatosPersonales.verPersonas().subscribe(data =>  (this.datosPersonales = data))
+    }
   }
 
-}

@@ -11,6 +11,8 @@ import { ExperienciaLaboralComponent } from './components/experiencia-laboral/ex
 import { EstudiosComponent } from './components/estudios/estudios.component';
 import { HabilidadesComponent } from './components/habilidades/habilidades.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 
@@ -24,6 +26,8 @@ import { ProyectosComponent } from './components/proyectos/proyectos.component';
     EstudiosComponent,
     HabilidadesComponent,
     ProyectosComponent,
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

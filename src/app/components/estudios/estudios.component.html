@@ -1,113 +1,101 @@
 <section id="estudios" class="container tarjeta">
-        <div class="row">
-          <div class="col">
-            <h3><i class="fa-solid fa-graduation-cap"></i> Estudios</h3> 
-          </div>
-          <div class="col">
-                <section id="agregarEstudio">
-                    <button type="button" class="btn btn-light" id="boton_edit" data-bs-toggle="modal" data-bs-target="#agregarEstModal"><i class="fa-solid fa-plus fa-lg"></i></button>
-                </section> 
-          </div>
+  <div class="row">
+    <div class="col">
+      <h3><i class="fa-solid fa-graduation-cap"></i> Estudios</h3>
+    </div>
+    <div class="col">
+      <section id="agregarEstudio">
+        <button type="button" class="btn btn-light" id="boton_edit" data-bs-toggle="modal"
+          data-bs-target="#agregarEstModal" *ngIf="isLogged"><i class="fa-solid fa-plus fa-lg"></i></button>
+      </section>
+    </div>
+  </div>
+
+  <ul>
+    <li *ngFor="let est of estudiosList">
+      <div class="row">
+        <div class="col-11">
+          <h5>{{est.titulo}}</h5>
+          <p><time>{{est.inicio  | date:"yyyy"}}</time> - <time>{{est.fin  | date:"yyyy"}}</time> <br>
+            {{est.institucion}}</p>
         </div>
-    
-        <ul>
-             <li *ngFor="let est of estudiosList">
-                <div class="row">
-                    <div class="col-11">
-                        <h5>{{est.titulo}}</h5>
-                        <p><time>{{est.inicio}}</time> -  <time>{{est.fin}}</time> <br>
-                            {{est.institucion}}</p> 
-                    </div>
-                    <div class="col-1">
-                        <section id="editEstudio">
-                            <button type="button" class="btn btn-light" id="boton_edit" data-bs-toggle="modal" data-bs-target="#eliminarEstudioModal"> <i class="fa-solid fa-trash"></i></button> 
-                            <button type="button" class="btn btn-light" id="boton_edit" data-bs-toggle="modal" data-bs-target="#editarEstModal"> <i class="fa-solid fa-pen fa-lg"></i></button> 
-                        </section>
-                    </div>
-                </div>
-            </li>
-        </ul>
+        <div class="col-1">
+          <section id="editEstudio">
+            <button type="button" class="btn btn-light" id="boton_edit" (click)="borrarEstudio(est.id)" *ngIf="isLogged"> <i
+                class="fa-solid fa-trash"></i></button>
+            <button type="button" class="btn btn-light" id="boton_edit" data-bs-toggle="modal"
+              data-bs-target="#editarEstModal" *ngIf="isLogged"> <i class="fa-solid fa-pen fa-lg"></i></button>
+          </section>
+        </div>
+      </div>
+    </li>
+  </ul>
 </section>
 
 <!-- Modal agregar estudio -->
 <div class="modal fade" id="agregarEstModal" tabindex="-1" aria-labelledby="agregarEstModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="agregarEstModalLabel">Nuevo estudio</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="agregarEstModalLabel">Nuevo estudio</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form (ngSubmit)="nuevoEstudio()">
         <div class="modal-body">
-           <div class="mb-3">
-                <label for="inputLugar" class="form-label">Título</label>
-                <input type="text" class="form-control" id="inputLugar">
-            </div> 
-        <div class="mb-3">
-                <label for="inputIngreso" class="form-label">Desde</label>
-                <input type="date" class="form-control" id="inputIngreso">
-            </div>
-            <div class="mb-3">
-                <label for="inputFinal" class="form-label">Hasta</label>
-                <input type="date" class="form-control" id="inputFinal">
-            </div>
-            <div class="mb-3">
-                <label for="inputLugar" class="form-label">Institución</label>
-                <input type="text" class="form-control" id="inputLugar">
-            </div>
+          <div class="mb-3">
+            <label for="inputLugar" class="form-label">Título</label>
+            <input type="text" class="form-control" id="inputLugar" name="titulo" [(ngModel)]="titulo">
+          </div>
+          <div class="mb-3">
+            <label for="inputIngreso" class="form-label">Desde</label>
+            <input type="date" class="form-control" id="inputIngreso" name="inicio" [(ngModel)]="inicio">
+          </div>
+          <div class="mb-3">
+            <label for="inputFinal" class="form-label">Hasta</label>
+            <input type="date" class="form-control" id="inputFinal" name="fin" [(ngModel)]="fin">
+          </div>
+          <div class="mb-3">
+            <label for="inputLugar" class="form-label">Institución</label>
+            <input type="text" class="form-control" id="inputLugar" name="institucion" [(ngModel)]="institucion">
+          </div>
         </div>
         <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Agregar</button>
+          <button type="submit" class="btn btn-primary">Agregar</button>
         </div>
-      </div>
+      </form>
     </div>
   </div>
-
-<!-- Modal eliminar elemento-->
- <div class="modal fade" id="eliminarEstudioModal" tabindex="-1" aria-labelledby="eliminarModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="eliminarModalLabel">¿Desea eliminar este elemento?</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Si</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 
 <!-- Modal editar estudio -->
 <div class="modal fade" id="editarEstModal" tabindex="-1" aria-labelledby="editarEstModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="editarEstModalLabel">Nuevo estudio</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-           <div class="mb-3">
-                <label for="inputLugar" class="form-label">Título</label>
-                <input type="text" class="form-control" id="inputLugar">
-            </div> 
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editarEstModalLabel">Nuevo estudio</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
         <div class="mb-3">
-                <label for="inputIngreso" class="form-label">Desde</label>
-                <input type="date" class="form-control" id="inputIngreso">
-            </div>
-            <div class="mb-3">
-                <label for="inputFinal" class="form-label">Hasta</label>
-                <input type="date" class="form-control" id="inputFinal">
-            </div>
-            <div class="mb-3">
-                <label for="inputLugar" class="form-label">Institución</label>
-                <input type="text" class="form-control" id="inputLugar">
-            </div>
+          <label for="inputLugar" class="form-label">Título</label>
+          <input type="text" class="form-control" id="inputLugar">
         </div>
-        <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Editar</button>
+        <div class="mb-3">
+          <label for="inputIngreso" class="form-label">Desde</label>
+          <input type="date" class="form-control" id="inputIngreso">
         </div>
+        <div class="mb-3">
+          <label for="inputFinal" class="form-label">Hasta</label>
+          <input type="date" class="form-control" id="inputFinal">
+        </div>
+        <div class="mb-3">
+          <label for="inputLugar" class="form-label">Institución</label>
+          <input type="text" class="form-control" id="inputLugar">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Editar</button>
       </div>
     </div>
   </div>
-  
+</div>

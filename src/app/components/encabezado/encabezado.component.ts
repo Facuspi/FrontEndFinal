@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { DatosService } from 'src/app/servicios/datos.service';
+import { Router } from '@angular/router';
 
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Persona } from 'src/app/entity/persona';
+import { PersonaService } from 'src/app/servicios/persona.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-encabezado',
@@ -9,49 +11,33 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./encabezado.component.css']
 })
 export class EncabezadoComponent implements OnInit {
-  datosPersonales: any;
-  form: FormGroup;
+  isLogged=false;
 
-  constructor(private datosPorfolio:DatosService, private formBuilder: FormBuilder) { 
-    this.form= this.formBuilder.group({
-      password:['',[Validators.required]],
-      email:['', [Validators.required, Validators.email]],
-   })
-  }
+  datosPersonales: Persona[] = [];
+
+
+  constructor(private sDatosPersonales: PersonaService, private router:Router, private tokenService: TokenService) { }
 
   ngOnInit(): void {
-    this.datosPorfolio.obtenerDatos().subscribe(data => {
-      this.datosPersonales = data;
-    });
-  }
-  get Password(){
-    return this.form.get("password");
-  }
- 
-  get Mail(){
-   return this.form.get("email");
-  }
-
-  get PasswordValid(){
-    return this.Password?.touched && !this.Password?.valid;
-  }
-
-  get MailValid() {
-    return false
-  }
-
-  onEnviar(event: Event){
-    // Detenemos la propagación o ejecución del compotamiento submit de un form
-    event.preventDefault; 
- 
-    if (this.form.valid){
-      // Llamamos a nuestro servicio para enviar los datos al servidor
-      // También podríamos ejecutar alguna lógica extra
-      alert("Todo salio bien ¡Enviar formuario!")
-    }else{
-      // Corremos todas las validaciones para que se ejecuten los mensajes de error en el template     
-      this.form.markAllAsTouched(); 
+    if(this.tokenService.getToken()){
+      this.isLogged=true;
+    } else {
+      this.isLogged =false;
     }
- 
+    this.mostrarDatosPersonales();
   }
+
+  mostrarDatosPersonales(): void {
+    this.sDatosPersonales.verPersonas().subscribe(data => (this.datosPersonales = data))
+  }
+
+  login(){
+    this.router.navigate(['/login'])
+  }
+
+  onLogOut():void{
+    this.tokenService.logOut();
+    window.location.reload();
+  }
+
 }

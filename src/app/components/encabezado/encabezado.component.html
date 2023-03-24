@@ -1,70 +1,26 @@
-<section id="encabezado" class="container sticky-top">
-    <div class="row">
-      <div class="col text-start">
-            <img src="./assets/Imagenes/APLogo.png" id="logo_AP"  >
-         
-             <h4>#YoProgramo</h4> 
+<section id="encabezado" class="container">
+  <div class="row">
+    <div class="col text-start">
+      <img src="./assets/Imagenes/APLogo.png" id="logo_AP">
 
-        </div>
-      <div class="col text-end">
-        <a [href]="datosPersonales.urlGitHub" target="_BLANCK" id="logo_RRSS">
-            <i class="fa-brands fa-github fa-2xl"></i>
-        </a>
-  
-        <button id="boton_login" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#loginModal">
-            Iniciar Sesión
-        </button>    
-        
-        <button id="boton_login" type="button" class="btn btn-outline-light">
-            Cerrar Sesion
-        </button>
-        </div>
+      <h4>#YoProgramo</h4>
+
     </div>
-</section>
+    <div class="col text-end" *ngFor="let pers of datosPersonales">
+      <a [href]="pers.urlGithub" target="_BLANCK" id="logo_RRSS">
+        <i class="fa-brands fa-github fa-2xl"></i>
+      </a>
 
-<!-- Modal login -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="loginModalLabel">Iniciar Sesión</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            
-          <form [formGroup]="form"  (ngSubmit)="onEnviar($event)">
-               
-              <div class="mb-3">
-                  <label for="inputEmail" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" formControlName="email">
-                </div>               
-                
-                <div *ngIf="Mail?.errors  && Mail?.touched">    
-                  <p *ngIf="Mail?.hasError('required')" class="error text-danger">
-                      El email es requerido.
-                  </p>
-                  <p *ngIf="Mail?.hasError('email')" class="error text-danger">
-                      El formato del email debe ser válido.
-                    </p>
-              </div>
-                          
-                <div class="mb-3">
-                  <label for="inputContra" class="form-label">Contraseña</label>
-                  <input type="password" class="form-control" id="inputContra" formControlName="password" >
-                </div>         
-                  
-              
-              <div *ngIf="Password?.errors  && Password?.touched">
-                <p *ngIf="Password?.hasError('required')" class="error text-danger">
-                  El password es requerido.
-                </p>
-              </div>
+      <button id="boton_login" type="button" class="btn btn-outline-light" 
+       (click)="login()" *ngIf="!isLogged">
+        Iniciar Sesión
+      </button>
 
-                <div class="text-end">
-                <button type="submit" class="btn btn-secondary">Ingresar</button>
-                </div>
-              </form>
-        </div>
-      </div>
+      <button id="boton_login" type="button" class="btn btn-outline-light" (click)="onLogOut()" *ngIf="isLogged">
+        Cerrar Sesion
+      </button>
     </div>
   </div>
+</section>
+
+

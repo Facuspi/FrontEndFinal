@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DatosService } from 'src/app/servicios/datos.service';
+import { Fortaleza } from 'src/app/entity/fortaleza';
+import { FortalezaService } from 'src/app/servicios/fortaleza.service';
+import { TokenService } from 'src/app/servicios/token.service';
+
 
 @Component({
   selector: 'app-habilidades',
@@ -7,13 +10,40 @@ import { DatosService } from 'src/app/servicios/datos.service';
   styleUrls: ['./habilidades.component.css']
 })
 export class HabilidadesComponent implements OnInit {
-  habilidadesList: any;
-  constructor(private datosPorfolio:DatosService) { }
+  habilidadesList: Fortaleza[] = [];
+  nombre: string = '';
+  porcentaje: number = 0;
+  isLogged=false;
+
+  constructor(private sHabilidades: FortalezaService, private tokenService:TokenService) { }
 
   ngOnInit(): void {
-    this.datosPorfolio.obtenerDatos().subscribe(data => {
-      this.habilidadesList = data.fortalezas;
-    })
+    if(this.tokenService.getToken()){
+      this.isLogged=true;
+    } else {
+      this.isLogged =false;
+    }
+    this.mostrarHabilidades();
   }
 
+  mostrarHabilidades(): void {
+    this.sHabilidades.verFortalezas().subscribe(data => (this.habilidadesList = data))
+  }
+
+  nuevaHabilidad(): void {
+    const hab = new Fortaleza(this.nombre, this.porcentaje);
+    this.sHabilidades.crearFortaleza(hab).subscribe(
+      data => {
+        alert("Nueva habilidad cargada correctamente")
+        window.location.reload();
+      }, err => {
+        alert("Falló la carga de datos");
+        window.location.reload();
+      }
+    )
+  }
+
+  borrarHabilidad(id: number | undefined): void {
+    if (id != undefined && confirm("¿Desea eliminar este elemento?")) { this.sHabilidades.eliminarFortaleza(id).subscribe(data => (this.mostrarHabilidades())) }
+  }
 }
