@@ -24,8 +24,8 @@ export class PersonaService {
     return this.httpClient.post<any>(this.url + 'crear', nuevaPersona);
   }
 
-  public editarPersona(persona: Persona): Observable<any>{
-    return this.httpClient.put<any>(this.url + 'editar', persona);
+  public editarPersona(id:number, persona: Persona): Observable<any>{
+    return this.httpClient.put<any>(this.url + `editar/${id}`, persona);
   }
 
   public eliminarPersona(id : number):Observable<any>{

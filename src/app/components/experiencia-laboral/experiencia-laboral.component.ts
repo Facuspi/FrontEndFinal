@@ -21,6 +21,7 @@ export class ExperienciaLaboralComponent implements OnInit {
   descripcion: string = '';
   isLogged = false;
   form: FormGroup;
+  
 
 
   constructor(private sExperiencia: ExperienciaService, private tokenService: TokenService, private formBuilder: FormBuilder) {
@@ -61,6 +62,9 @@ export class ExperienciaLaboralComponent implements OnInit {
       }
     )
   }
+
+    
+
 
   borrarExperiencia(id: number | undefined): void {
     if (id != undefined && confirm("¿Desea eliminar este elemento?")) { this.sExperiencia.eliminarExperiencia(id).subscribe(data => (this.mostrarExperiencias())) }

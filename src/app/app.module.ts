@@ -13,6 +13,11 @@ import { HabilidadesComponent } from './components/habilidades/habilidades.compo
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { EditExpeComponent } from './components/experiencia-laboral/edit-expe.component';
+import { EditDatospersComponent } from './components/datos-personales/edit-datospers.component';
+import { EditEstudiosComponent } from './components/estudios/edit-estudios.component';
+import { EditHabilidadesComponent } from './components/habilidades/edit-habilidades.component';
+import { EditProyectosComponent } from './components/proyectos/edit-proyectos.component';
 
 
 
@@ -27,7 +32,12 @@ import { LoginComponent } from './components/login/login.component';
     HabilidadesComponent,
     ProyectosComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    EditExpeComponent,
+    EditDatospersComponent,
+    EditEstudiosComponent,
+    EditHabilidadesComponent,
+    EditProyectosComponent
   ],
   imports: [
     BrowserModule,

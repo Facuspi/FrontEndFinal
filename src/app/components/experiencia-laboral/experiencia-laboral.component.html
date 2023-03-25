@@ -24,8 +24,7 @@
           <section id="editExperincia">
             <button type="button" class="btn btn-light" id="boton_edit" (click)="borrarExperiencia(exp.id)"> <i
                 class="fa-solid fa-trash" *ngIf="isLogged"></i></button>
-            <button type="button" class="btn btn-light" id="boton_edit" data-bs-toggle="modal"
-              data-bs-target="#editarExpModal" *ngIf="isLogged"> <i class="fa-solid fa-pen fa-lg"></i></button>
+            <button type="button" class="btn btn-light" id="boton_edit" routerLink="/editarExpLab/{{exp.id}}" *ngIf="isLogged"> <i class="fa-solid fa-pen fa-lg"></i></button>
           </section>
         </div>
       </div>
@@ -101,81 +100,6 @@
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">Agregar</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-
-<!-- Modal editar experiencia -->
-<div class="modal fade" id="editarExpModal" tabindex="-1" aria-labelledby="editarExpModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="editarExpModalLabel">Editar experiencia Laboral</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <form [formGroup]="form">
-        <div class="modal-body">
-          <div class="mb-3">
-            <label for="puesto" class="form-label">Puesto/Rol</label>
-            <input type="text" class="form-control" id="puesto" name="puesto" formControlName="puesto"
-              [ngClass]="{'is-invalid': Puesto?.errors && Puesto?.touched, 'is-valid':!Puesto?.errors && Puesto?.touched}"
-              [(ngModel)]="puesto">
-          </div>
-
-          <div *ngIf="Puesto?.errors && Puesto?.touched">
-            <p *ngIf="Puesto?.hasError('required')" class="text-danger">El puesto es requerido</p>
-          </div>
-
-          <div class="mb-3">
-            <label for="inputEmpresa" class="form-label">Empresa</label>
-            <input type="text" class="form-control" id="inputEmpresa" name="empresa" formControlName="empresa"
-              [ngClass]="{'is-invalid': Empresa?.errors && Empresa?.touched, 'is-valid':!Empresa?.errors && Empresa?.touched}"
-              [(ngModel)]="empresa">
-          </div>
-
-          <div *ngIf="Empresa?.errors && Empresa?.touched">
-            <p *ngIf="Empresa?.hasError('required')" class="text-danger">La empresa es requerida</p>
-          </div>
-
-          <div class="mb-3">
-            <label for="inputIngreso" class="form-label">Desde</label>
-            <input type="date" class="form-control" id="inputIngreso" name="inicio" formControlName="desde"
-              [ngClass]="{'is-invalid': Desde?.errors && Desde?.touched, 'is-valid':!Desde?.errors && Desde?.touched}"
-              [(ngModel)]="inicio">
-          </div>
-
-          <div *ngIf="Desde?.errors && Desde?.touched">
-            <p *ngIf="Desde?.hasError('required')" class="text-danger">El mes y año de inicio es requerido</p>
-          </div>
-
-          <div class="mb-3">
-            <label for="inputFinal" class="form-label">Hasta</label>
-            <input type="date" class="form-control" id="inputFinal" name="fin" formControlName="hasta"
-              [ngClass]="{'is-invalid': Hasta?.errors && Hasta?.touched, 'is-valid':!Hasta?.errors && Hasta?.touched}"
-              [(ngModel)]="fin">
-          </div>
-
-          <div *ngIf="Hasta?.errors && Hasta?.touched">
-            <p *ngIf="Hasta?.hasError('required')" class="text-danger">El mes y año de finalizacion es requerido</p>
-          </div>
-
-          <div class="mb-3">
-            <label for="inputDesc" class="form-label">Descripción</label>
-            <textarea class="form-control" id="inputDesc" rows="3" name="descripcion" formControlName="descripcion"
-              [ngClass]="{'is-invalid': Descripcion?.errors && Descripcion?.touched, 'is-valid':!Descripcion?.errors && Descripcion?.touched}"
-              [(ngModel)]="descripcion"></textarea>
-
-            <div *ngIf="Descripcion?.errors && Descripcion?.touched">
-              <p *ngIf="Descripcion?.hasError('required')" class="text-danger">La descripcion es requerida</p>
-            </div>
-
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Editar</button>
         </div>
       </form>
     </div>

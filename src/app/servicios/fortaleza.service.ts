@@ -24,8 +24,8 @@ export class FortalezaService {
     return this.httpClient.post<any>(this.url + 'crear', nuevaFortaleza);
   }
 
-  public editarFortaleza(fortaleza: Fortaleza): Observable<any>{
-    return this.httpClient.put<any>(this.url + 'editar', fortaleza);
+  public editarFortaleza(id:number, fortaleza: Fortaleza): Observable<any>{
+    return this.httpClient.put<any>(this.url + `editar/${id}`, fortaleza);
   }
 
   public eliminarFortaleza(id : number):Observable<any>{

@@ -1,0 +1,60 @@
+<div class="container tarjeta">
+    <div class="row">
+        <div class="col">
+            <h3><i class="fa-solid fa-graduation-cap"></i>Editar estudio</h3>
+        </div>
+        <form [formGroup]="form" (ngSubmit)="editarEstudio()">
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="inputLugar" class="form-label">Título</label>
+                    <input type="text" class="form-control" id="inputLugar" name="titulo" formControlName="titulo"
+                        [ngClass]="{'is-invalid': Titulo?.errors && Titulo?.touched, 'is-valid':!Titulo?.errors && Titulo?.touched}"
+                        [(ngModel)]="estudio.titulo">
+                </div>
+
+                <div *ngIf="Titulo?.errors && Titulo?.touched">
+                    <p *ngIf="Titulo?.hasError('required')" class="text-danger">El titulo es requerido</p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputIngreso" class="form-label">Desde</label>
+                    <input type="date" class="form-control" id="inputIngreso" name="inicio" formControlName="desde"
+                        [ngClass]="{'is-invalid': Desde?.errors && Desde?.touched, 'is-valid':!Desde?.errors && Desde?.touched}"
+                        [(ngModel)]="estudio.inicio">
+                </div>
+
+                <div *ngIf="Desde?.errors && Desde?.touched">
+                    <p *ngIf="Desde?.hasError('required')" class="text-danger">El mes y año de inicio es requerido</p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputFinal" class="form-label">Hasta</label>
+                    <input type="date" class="form-control" id="inputFinal" name="fin" formControlName="hasta"
+                        [ngClass]="{'is-invalid': Hasta?.errors && Hasta?.touched, 'is-valid':!Hasta?.errors && Hasta?.touched}"
+                        [(ngModel)]="estudio.fin">
+                </div>
+
+                <div *ngIf="Hasta?.errors && Hasta?.touched">
+                    <p *ngIf="Hasta?.hasError('required')" class="text-danger">El mes y año de finalización es requerido
+                    </p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputLugar" class="form-label">Institución</label>
+                    <input type="text" class="form-control" id="inputLugar" name="institucion"
+                        formControlName="institucion"
+                        [ngClass]="{'is-invalid': Institucion?.errors && Institucion?.touched, 'is-valid':!Institucion?.errors && Institucion?.touched}"
+                        [(ngModel)]="estudio.institucion">
+                </div>
+
+                <div *ngIf="Institucion?.errors && Institucion?.touched">
+                    <p *ngIf="Institucion?.hasError('required')" class="text-danger">La institucion es requerida</p>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Editar</button>
+            </div>
+        </form>
+    </div>
+</div>

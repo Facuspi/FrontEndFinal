@@ -1,0 +1,38 @@
+<div class="container tarjeta">
+    <div class="row">
+        <div class="col">
+            <h3><i class="fa-sharp fa-solid fa-chart-simple"></i> Editar Habilidad</h3>
+        </div>
+        <form [formGroup]="form" (ngSubmit)="editarHabilidad()">
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="inputHabilidad" class="form-label">Habilidad</label>
+                    <input type="text" class="form-control" id="inputHabilidad" name="nombre"
+                        formControlName="habilidad"
+                        [ngClass]="{'is-invalid': Habilidad?.errors && Habilidad?.touched, 'is-valid':!Habilidad?.errors && Habilidad?.touched}"
+                        [(ngModel)]="habilidad.nombre">
+                </div>
+
+                <div *ngIf="Habilidad?.errors && Habilidad?.touched">
+                    <p *ngIf="Habilidad?.hasError('required')" class="text-danger">La hablidad es requerida</p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputPorcentaje" class="form-label">Porcentaje</label>
+                    <input type="number" class="form-control" id="inputPorcentaje" name="porcentaje"
+                        formControlName="porcentaje"
+                        [ngClass]="{'is-invalid': Porcentaje?.errors && Porcentaje?.touched, 'is-valid':!Porcentaje?.errors && Porcentaje?.touched}"
+                        [(ngModel)]="habilidad.porcentaje">
+                </div>
+
+                <div *ngIf="Porcentaje?.errors && Porcentaje?.touched">
+                    <p *ngIf="Porcentaje?.hasError('required')" class="text-danger">El porcentaje es requerido</p>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Editar</button>
+            </div>
+        </form>
+    </div>
+</div>

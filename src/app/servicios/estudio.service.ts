@@ -25,8 +25,8 @@ export class EstudioService {
     return this.httpClient.post<any>(this.url + 'crear', nuevoEstudio);
   }
 
-  public editarEstudio(estudio: Estudio): Observable<any>{
-    return this.httpClient.put<any>(this.url + 'editar', estudio);
+  public editarEstudio(id:number, estudio: Estudio): Observable<any>{
+    return this.httpClient.put<any>(this.url + `editar/${id}`, estudio);
   }
 
   public eliminarEstudio(id : number):Observable<any>{

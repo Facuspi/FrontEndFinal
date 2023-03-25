@@ -24,8 +24,8 @@ export class ProyectoService {
     return this.httpClient.post<any>(this.url + 'crear', nuevoProyecto);
   }
 
-  public editarProyecto(proyecto: Proyecto): Observable<any>{
-    return this.httpClient.put<any>(this.url + 'editar', proyecto);
+  public editarProyecto(id:number, proyecto: Proyecto): Observable<any>{
+    return this.httpClient.put<any>(this.url + `editar/${id}`, proyecto);
   }
 
   public eliminarProyecto(id : number):Observable<any>{

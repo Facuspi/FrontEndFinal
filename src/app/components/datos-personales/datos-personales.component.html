@@ -4,7 +4,10 @@
       <img [src]="pers.urlBanner" class="img-fluid rounded" id="banner">
     </div>
   </div>
-
+  <div id="editDatos">
+    <button type="button" class="btn btn-light" id="boton_edit" routerLink="/editarPers/{{pers.id}}" *ngIf="isLogged"> <i
+        class="fa-solid fa-pen fa-lg"></i></button>
+  </div>
   <div class="row align-items-center">
 
     <div class="col">
@@ -18,180 +21,15 @@
     </div>
 
     <div class="col">
-      <section id="editarFoto">
-        <button type="button" class="btn btn-light" id="boton_edit" data-bs-toggle="modal"
-          data-bs-target="#editFotoModal" *ngIf="isLogged"> <i class="fa-solid fa-camera fa-lg"></i></button>
-      </section>
-
-      <section id="editDatos">
-        <button type="button" class="btn btn-light" id="boton_edit" data-bs-toggle="modal" data-bs-target="#editarModal"
-          *ngIf="isLogged"> <i class="fa-solid fa-pen fa-lg"></i></button>
-      </section>
-    </div>
+    </div> 
 
   </div>
-
   <div class="container p-2">
     <div class="row text-start">
-      <div class="col-10">
+      <div class="col">
         <h3><i class="fa-solid fa-address-card fa-l "></i> Sobre mí</h3>
         <p>{{pers.sobreMi}}</p>
       </div>
-      <div class="col-2">
-        <section id="editSobreMi">
-          <button type="button" class="btn btn-light" id="boton_edit" data-bs-toggle="modal"
-            data-bs-target="#editSobreMiModal" *ngIf="isLogged"> <i class="fa-solid fa-pen fa-lg"></i></button>
-        </section>
-      </div>
     </div>
   </div>
-
 </section>
-
-<!-- Modal editar datos personales-->
-<div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="editarModalLabel">Editar datos personales</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="form">
-          <div class="mb-3">
-            <label for="inputNombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="inputNombre" formControlName="nombre"
-              [ngClass]="{'is-invalid': Nombre?.errors && Nombre?.touched, 'is-valid':!Nombre?.errors && Nombre?.touched}">
-          </div>
-
-          <div *ngIf="Nombre?.errors && Nombre?.touched">
-            <p *ngIf="Nombre?.hasError('required')" class="text-danger">El nombre es requerido</p>
-          </div>
-
-          <div class="mb-3">
-            <label for="inputApellido" class="form-label">Apellido</label>
-            <input type="text" class="form-control" id="inputApellido" formControlName="apellido"
-              [ngClass]="{'is-invalid': Apellido?.errors && Apellido?.touched, 'is-valid':!Apellido?.errors && Apellido?.touched}">
-          </div>
-
-          <div *ngIf="Apellido?.errors && Apellido?.touched">
-            <p *ngIf="Apellido?.hasError('required')" class="text-danger">El apellido es requerido</p>
-          </div>
-
-          <div class="mb-3">
-            <label for="inputPosition" class="form-label">Posicion</label>
-            <input type="text" class="form-control" id="inputPosition" formControlName="posicion"
-              [ngClass]="{'is-invalid': Posicion?.errors && Posicion?.touched, 'is-valid':!Posicion?.errors && Posicion?.touched}">
-          </div>
-
-          <div *ngIf="Posicion?.errors && Posicion?.touched">
-            <p *ngIf="Posicion?.hasError('required')" class="text-danger">La posicion es requerida</p>
-          </div>
-
-          <div class="mb-3">
-            <label for="inputCiudad" class="form-label">Ciudad</label>
-            <input type="text" class="form-control" id="inputCiudad" formControlName="ciudad"
-              [ngClass]="{'is-invalid': Ciudad?.errors && Ciudad?.touched, 'is-valid':!Ciudad?.errors && Ciudad?.touched}">
-          </div>
-
-          <div *ngIf="Ciudad?.errors && Ciudad?.touched">
-            <p *ngIf="Ciudad?.hasError('required')" class="text-danger">La ciudad es requerida</p>
-          </div>
-
-          <div class="mb-3">
-            <label for="inputPais" class="form-label">País</label>
-            <input type="text" class="form-control" id="inputPais" formControlName="pais"
-              [ngClass]="{'is-invalid': Pais?.errors && Pais?.touched, 'is-valid':!Pais?.errors && Pais?.touched}">
-          </div>
-
-          <div *ngIf="Pais?.errors && Pais?.touched">
-            <p *ngIf="Pais?.hasError('required')" class="text-danger">El pais es requerido</p>
-          </div>
-
-          <div class="mb-3">
-            <label for="inputPais" class="form-label">Url perfil de GitHub</label>
-            <input type="text" class="form-control" id="inputurlGithub" formControlName="urlGitHub"
-              [ngClass]="{'is-invalid': UrlGitHub?.errors && UrlGitHub?.touched, 'is-valid':!UrlGitHub?.errors && UrlGitHub?.touched}">
-          </div>
-
-          <div *ngIf="UrlGitHub?.errors && UrlGitHub?.touched">
-            <p *ngIf="UrlGitHub?.hasError('required')" class="text-danger">La url del perfil en GitHub es requerida</p>
-          </div>
-
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Editar</button>
-          </div>
-        </form>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- Modal Foto de perfil y banner-->
-<div class="modal fade" id="editFotoModal" tabindex="-1" aria-labelledby="editFotoModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="editFotoModalLabel">Cambiar foto de perfil y/o banner</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="form">
-          <div class="mb-3">
-            <label for="inputURL" class="form-label">URL foto de perfil</label>
-            <input type="url" class="form-control" id="inputURL" formControlName="urlFotoPerfil"
-              [ngClass]="{'is-invalid': UrlFotoPerfil?.errors && UrlFotoPerfil?.touched, 'is-valid':!UrlFotoPerfil?.errors && UrlFotoPerfil?.touched}">
-
-            <div *ngIf="UrlFotoPerfil?.errors && UrlFotoPerfil?.touched">
-              <p *ngIf="UrlFotoPerfil?.hasError('required')" class="text-danger">La url es requerida</p>
-            </div>
-
-            <label for="inputURL" class="form-label">URL banner</label>
-            <input type="url" class="form-control" id="inputURL" formControlName="urlBanner"
-              [ngClass]="{'is-invalid': UrlBanner?.errors && UrlBanner?.touched, 'is-valid':!UrlBanner?.errors && UrlBanner?.touched}">
-
-            <div *ngIf="UrlBanner?.errors && UrlBanner?.touched">
-              <p *ngIf="UrlBanner?.hasError('required')" class="text-danger">La url es requerida</p>
-            </div>
-
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Editar</button>
-          </div>
-        </form>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- Modal editar sobre mi -->
-<div class="modal fade" id="editSobreMiModal" tabindex="-1" aria-labelledby="editSobreMiModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="editSobreMiModalLabel">Editar "Sobre Mí"</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="form">
-          
-          <div class="mb-3">
-            
-            <textarea class="form-control" id="inputSobreMi" rows="3" name="sobreMi" formControlName="sobreMi"
-            [ngClass]="{'is-invalid': SobreMi?.errors && SobreMi?.touched, 'is-valid':!SobreMi?.errors && SobreMi?.touched}" ></textarea>
-          </div>
-
-          <div *ngIf="SobreMi?.errors && SobreMi?.touched">
-            <p *ngIf="SobreMi?.hasError('required')" class="text-danger">Este campo es requerido</p>
-          </div>
-
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Editar</button>
-      </div>
-    </div>
-  </div>
-</div>
