@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
   errMsj!: string;
   form: FormGroup;
 
-  constructor(private tokenService: TokenService, private authService: AuthService, private router: Router, private formBuider:FormBuilder) {
-    this.form = this.formBuider.group(
+  constructor(private tokenService: TokenService, private authService: AuthService, private router: Router, private formBuilder:FormBuilder) {
+    this.form = this.formBuilder.group(
       {
         nombreUsuario:['', Validators.required],
         password:['', Validators.required]

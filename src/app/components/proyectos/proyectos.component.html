@@ -48,24 +48,48 @@
         <h1 class="modal-title fs-5" id="nuevoProyModalLabel">Nuevo proyecto</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form (ngSubmit)="nuevoProyecto()">
+      <form [formGroup]="form" (ngSubmit)="nuevoProyecto()">
         <div class="modal-body">
           <div class="mb-3">
             <label for="inputProyecto" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="inputProyecto" name="nombre" [(ngModel)]="nombre">
+            <input type="text" class="form-control" id="inputProyecto" name="nombre" formControlName="nombre"
+            [ngClass]="{'is-invalid': Nombre?.errors && Nombre?.touched, 'is-valid':!Nombre?.errors && Nombre?.touched}" [(ngModel)]="nombre">
           </div>
+
+          <div *ngIf="Nombre?.errors && Nombre?.touched">
+            <p *ngIf="Nombre?.hasError('required')" class="text-danger">El nombre es requerido</p>
+          </div>
+
           <div class="mb-3">
             <label for="inputFecha" class="form-label">Fecha de realización</label>
-            <input type="date" class="form-control" id="inputFecha" name="fecha" [(ngModel)]="fecha">
+            <input type="date" class="form-control" id="inputFecha" name="fecha" formControlName="fecha"
+            [ngClass]="{'is-invalid': Fecha?.errors && Fecha?.touched, 'is-valid':!Fecha?.errors && Fecha?.touched}" [(ngModel)]="fecha">
           </div>
+
+          <div *ngIf="Fecha?.errors && Fecha?.touched">
+            <p *ngIf="Fecha?.hasError('required')" class="text-danger">El mes y año de realización son requeridos </p>
+          </div>
+
           <div class="mb-3">
             <label for="inputDesc" class="form-label">Descripción</label>
-            <textarea class="form-control" id="inputDesc" rows="3" name="descripcion" [(ngModel)]="descripcion"></textarea>
+            <textarea class="form-control" id="inputDesc" rows="3" name="descripcion" formControlName="descripcion"
+            [ngClass]="{'is-invalid': Descripcion?.errors && Descripcion?.touched, 'is-valid':!Descripcion?.errors && Descripcion?.touched}" [(ngModel)]="descripcion"></textarea>
           </div>
+
+          <div *ngIf="Descripcion?.errors && Descripcion?.touched">
+            <p *ngIf="Descripcion?.hasError('required')" class="text-danger">La descripción es requerida</p>
+          </div>
+
           <div class="mb-3">
             <label for="inputUrl" class="form-label">Url</label>
-            <input type="text" class="form-control" id="inputUrl" name="url" [(ngModel)]="url">
+            <input type="text" class="form-control" id="inputUrl" name="url" formControlName="url"
+            [ngClass]="{'is-invalid': Url?.errors && Url?.touched, 'is-valid':!Url?.errors && Url?.touched}" [(ngModel)]="url">
           </div>
+
+          <div *ngIf="Url?.errors && Url?.touched">
+            <p *ngIf="Url?.hasError('required')" class="text-danger">La URL es requerida</p>
+          </div>
+
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary">Agregar</button>
@@ -83,23 +107,53 @@
         <h1 class="modal-title fs-5" id="editarProyModalLabel">Editar proyecto</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <div class="mb-3">
-          <label for="inputProyecto" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="inputProyecto">
+      <form [formGroup]="form">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="inputProyecto" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="inputProyecto" name="nombre" formControlName="nombre"
+            [ngClass]="{'is-invalid': Nombre?.errors && Nombre?.touched, 'is-valid':!Nombre?.errors && Nombre?.touched}" [(ngModel)]="nombre">
+          </div>
+
+          <div *ngIf="Nombre?.errors && Nombre?.touched">
+            <p *ngIf="Nombre?.hasError('required')" class="text-danger">El nombre es requerido</p>
+          </div>
+
+          <div class="mb-3">
+            <label for="inputFecha" class="form-label">Fecha de realización</label>
+            <input type="date" class="form-control" id="inputFecha" name="fecha" formControlName="fecha"
+            [ngClass]="{'is-invalid': Fecha?.errors && Fecha?.touched, 'is-valid':!Fecha?.errors && Fecha?.touched}" [(ngModel)]="fecha">
+          </div>
+
+          <div *ngIf="Fecha?.errors && Fecha?.touched">
+            <p *ngIf="Fecha?.hasError('required')" class="text-danger">El mes y año de realización son requeridos </p>
+          </div>
+
+          <div class="mb-3">
+            <label for="inputDesc" class="form-label">Descripción</label>
+            <textarea class="form-control" id="inputDesc" rows="3" name="descripcion" formControlName="descripcion"
+            [ngClass]="{'is-invalid': Descripcion?.errors && Descripcion?.touched, 'is-valid':!Descripcion?.errors && Descripcion?.touched}" [(ngModel)]="descripcion"></textarea>
+          </div>
+
+          <div *ngIf="Descripcion?.errors && Descripcion?.touched">
+            <p *ngIf="Descripcion?.hasError('required')" class="text-danger">La descripción es requerida</p>
+          </div>
+
+          <div class="mb-3">
+            <label for="inputUrl" class="form-label">Url</label>
+            <input type="text" class="form-control" id="inputUrl" name="url" formControlName="url"
+            [ngClass]="{'is-invalid': Url?.errors && Url?.touched, 'is-valid':!Url?.errors && Url?.touched}" [(ngModel)]="url">
+          </div>
+
+          <div *ngIf="Url?.errors && Url?.touched">
+            <p *ngIf="Url?.hasError('required')" class="text-danger">La URL es requerida</p>
+          </div>
+
         </div>
-        <div class="mb-3">
-          <label for="inputFecha" class="form-label">Fecha de realización</label>
-          <input type="date" class="form-control" id="inputFecha">
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Editar</button>
         </div>
-        <div class="mb-3">
-          <label for="inputDesc" class="form-label">Descripción</label>
-          <textarea class="form-control" id="inputDesc" rows="3"></textarea>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Editar</button>
-      </div>
+      </form>
     </div>
   </div>
 </div>
