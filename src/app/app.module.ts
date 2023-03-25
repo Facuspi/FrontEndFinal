@@ -18,6 +18,7 @@ import { EditDatospersComponent } from './components/datos-personales/edit-datos
 import { EditEstudiosComponent } from './components/estudios/edit-estudios.component';
 import { EditHabilidadesComponent } from './components/habilidades/edit-habilidades.component';
 import { EditProyectosComponent } from './components/proyectos/edit-proyectos.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -37,7 +38,8 @@ import { EditProyectosComponent } from './components/proyectos/edit-proyectos.co
     EditDatospersComponent,
     EditEstudiosComponent,
     EditHabilidadesComponent,
-    EditProyectosComponent
+    EditProyectosComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
