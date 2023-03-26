@@ -9,7 +9,7 @@ import { Estudio } from '../entity/estudio';
 })
 export class EstudioService {
 
-  url= 'http://localhost:8080/estudio/'
+  url= 'https://backendfinal-8vqp.onrender.com/estudio/'
 
   constructor(private httpClient:HttpClient) { }
 

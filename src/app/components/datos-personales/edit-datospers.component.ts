@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Persona } from 'src/app/entity/persona';
+import { ImagenesService } from 'src/app/servicios/imagenes.service';
 import { PersonaService } from 'src/app/servicios/persona.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class EditDatospersComponent implements OnInit {
   form: FormGroup;
   persona : Persona = null;
 
-  constructor( private formBuilder : FormBuilder, private sPersona: PersonaService, private activatedRouter: ActivatedRoute, private router: Router) {
+  constructor( private formBuilder : FormBuilder, private sPersona: PersonaService, private activatedRouter: ActivatedRoute, private router: Router, public imagenService: ImagenesService) {
 
     this.form = this.formBuilder.group(
       {
@@ -44,6 +45,8 @@ export class EditDatospersComponent implements OnInit {
 
   editarPersona(): void{
     const id = this.activatedRouter.snapshot.params['id'];
+    this.persona.urlFoto = this.imagenService.urlPerfil
+    this.persona.urlBanner=this.imagenService.urlBanner
     this.sPersona.editarPersona(id,this.persona).subscribe(
       data =>{
         this.router.navigate(['']);
@@ -51,6 +54,17 @@ export class EditDatospersComponent implements OnInit {
         alert("Falló la modificacion de datos");
       }
     )
+  }
+
+  subirFotoPerfil($event : any){
+    const id = this.activatedRouter.snapshot.params['id'];
+    const name = "perfil_" + id;
+    this.imagenService.subirFotoPerfil($event,name)
+  }
+  subirFotoBanner($event : any){
+    const id = this.activatedRouter.snapshot.params['id'];
+    const name = "Banner_" + id;
+    this.imagenService.subirFotoBanner($event,name)
   }
 
   get Nombre(){

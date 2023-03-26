@@ -8,7 +8,7 @@ import { Fortaleza } from '../entity/fortaleza';
 })
 export class FortalezaService {
 
-  url= 'http://localhost:8080/fortaleza/'
+  url= 'https://backendfinal-8vqp.onrender.com/fortaleza/'
 
   constructor(private httpClient:HttpClient) { }
 

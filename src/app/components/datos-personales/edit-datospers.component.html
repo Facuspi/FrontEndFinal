@@ -66,26 +66,7 @@
             <div *ngIf="UrlGitHub?.errors && UrlGitHub?.touched">
                 <p *ngIf="UrlGitHub?.hasError('required')" class="text-danger">La url del perfil en GitHub es requerida
                 </p>
-            </div>
-
-            <div class="mb-3">
-                <label for="inputURL" class="form-label">URL foto de perfil</label>
-                <input type="url" class="form-control" id="inputURL" formControlName="urlFotoPerfil"
-                    [ngClass]="{'is-invalid': UrlFotoPerfil?.errors && UrlFotoPerfil?.touched, 'is-valid':!UrlFotoPerfil?.errors && UrlFotoPerfil?.touched}" [(ngModel)]="persona.urlFoto">
-
-                <div *ngIf="UrlFotoPerfil?.errors && UrlFotoPerfil?.touched">
-                    <p *ngIf="UrlFotoPerfil?.hasError('required')" class="text-danger">La url es requerida</p>
-                </div>
-
-                <label for="inputURL" class="form-label">URL banner</label>
-                <input type="url" class="form-control" id="inputURL" formControlName="urlBanner"
-                    [ngClass]="{'is-invalid': UrlBanner?.errors && UrlBanner?.touched, 'is-valid':!UrlBanner?.errors && UrlBanner?.touched}" [(ngModel)]="persona.urlBanner">
-
-                <div *ngIf="UrlBanner?.errors && UrlBanner?.touched">
-                    <p *ngIf="UrlBanner?.hasError('required')" class="text-danger">La url es requerida</p>
-                </div>
-
-            </div>
+            </div>          
 
             <div class="mb-3">
                 <label for="inputSobreMi" class="form-label">Sobre Mi</label>
@@ -95,6 +76,25 @@
 
             <div *ngIf="SobreMi?.errors && SobreMi?.touched">
                 <p *ngIf="SobreMi?.hasError('required')" class="text-danger">Este campo es requerido</p>
+            </div>
+
+            <div class="mb-3">
+                <label for="inputFoto" class="form-label">Foto de perfil</label>
+                <input type="file" class="form-control" id="inputFoto" formControlName="urlFotoPerfil"
+                    [ngClass]="{'is-invalid': UrlFotoPerfil?.errors && UrlFotoPerfil?.touched, 'is-valid':!UrlFotoPerfil?.errors && UrlFotoPerfil?.touched}" [(ngModel)]="persona.urlFoto" (change)="subirFotoPerfil($event)" accept=".jpg, .jpeg, .png">
+
+                <div *ngIf="UrlFotoPerfil?.errors && UrlFotoPerfil?.touched">
+                    <p *ngIf="UrlFotoPerfil?.hasError('required')" class="text-danger">La imagen es requerida</p>
+                </div>
+
+                <label for="inputBanner" class="form-label">Banner</label>
+                <input type="file" class="form-control" id="inputBanner" formControlName="urlBanner"
+                    [ngClass]="{'is-invalid': UrlBanner?.errors && UrlBanner?.touched, 'is-valid':!UrlBanner?.errors && UrlBanner?.touched}" [(ngModel)]="persona.urlBanner" (change)="subirFotoBanner($event)" accept=".jpg, .jpeg, .png">
+
+                <div *ngIf="UrlBanner?.errors && UrlBanner?.touched">
+                    <p *ngIf="UrlBanner?.hasError('required')" class="text-danger">La imagen es requerida</p>
+                </div>
+
             </div>
 
             <div class="modal-footer">

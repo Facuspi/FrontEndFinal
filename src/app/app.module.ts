@@ -19,6 +19,9 @@ import { EditEstudiosComponent } from './components/estudios/edit-estudios.compo
 import { EditHabilidadesComponent } from './components/habilidades/edit-habilidades.component';
 import { EditProyectosComponent } from './components/proyectos/edit-proyectos.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 
 
@@ -46,7 +49,9 @@ import { FooterComponent } from './components/footer/footer.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage())
   ],
   providers: [],
   bootstrap: [AppComponent]
