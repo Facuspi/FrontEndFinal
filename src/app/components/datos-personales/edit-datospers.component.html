@@ -87,14 +87,7 @@
                     <p *ngIf="UrlFotoPerfil?.hasError('required')" class="text-danger">La imagen es requerida</p>
                 </div>
 
-                <label for="inputBanner" class="form-label">Banner</label>
-                <input type="file" class="form-control" id="inputBanner" formControlName="urlBanner"
-                    [ngClass]="{'is-invalid': UrlBanner?.errors && UrlBanner?.touched, 'is-valid':!UrlBanner?.errors && UrlBanner?.touched}" [(ngModel)]="persona.urlBanner" (change)="subirFotoBanner($event)" accept=".jpg, .jpeg, .png">
-
-                <div *ngIf="UrlBanner?.errors && UrlBanner?.touched">
-                    <p *ngIf="UrlBanner?.hasError('required')" class="text-danger">La imagen es requerida</p>
-                </div>
-
+               
             </div>
 
             <div class="modal-footer">

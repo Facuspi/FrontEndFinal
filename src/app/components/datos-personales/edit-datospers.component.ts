@@ -46,7 +46,7 @@ export class EditDatospersComponent implements OnInit {
   editarPersona(): void{
     const id = this.activatedRouter.snapshot.params['id'];
     this.persona.urlFoto = this.imagenService.urlPerfil
-    this.persona.urlBanner=this.imagenService.urlBanner
+    
     this.sPersona.editarPersona(id,this.persona).subscribe(
       data =>{
         this.router.navigate(['']);
@@ -61,11 +61,7 @@ export class EditDatospersComponent implements OnInit {
     const name = "perfil_" + id;
     this.imagenService.subirFotoPerfil($event,name)
   }
-  subirFotoBanner($event : any){
-    const id = this.activatedRouter.snapshot.params['id'];
-    const name = "Banner_" + id;
-    this.imagenService.subirFotoBanner($event,name)
-  }
+
 
   get Nombre(){
     return this.form.get('nombre')

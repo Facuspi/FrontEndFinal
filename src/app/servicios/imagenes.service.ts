@@ -6,7 +6,7 @@ import { Storage, ref, uploadBytes, list, getDownloadURL } from '@angular/fire/s
 })
 export class ImagenesService {
  urlPerfil:string = "";
- urlBanner:string ="";
+ 
 
 constructor(private storage : Storage) { }
 
@@ -29,22 +29,5 @@ getImagesPerfil(){
   .catch(error => console.log(error))
 }
 
-public subirFotoBanner($event : any, name : string){
-  const file = $event.target.files[0];
-  const imgref = ref(this.storage, `imagenBanner/` + name )
-  uploadBytes(imgref, file)
-  .then(response => {this.getImagesPerfil()})
-  .catch(error => console.log(error))
-}
 
-getImagesBanner(){
-  const imagesRef= ref(this.storage, 'imagenBanner')
-  list(imagesRef)
-  .then(async response =>{
-    for(let item of response.items){
-      this.urlBanner = await getDownloadURL(item);
-    }
-  })
-  .catch(error => console.log(error))
-}
 }
